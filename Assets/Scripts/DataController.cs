@@ -22,7 +22,7 @@ public class DataController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		print(Application.persistentDataPath);
+		//print(Application.persistentDataPath);
 
 		DontDestroyOnLoad(gameObject);
 		// so multiple objects wont be created, delete newest
@@ -75,10 +75,9 @@ public class DataController : MonoBehaviour {
 			filePath = Application.persistentDataPath + "/" + initDataFile;
 		}
 
-		Debug.Log(filePath);
+		//Debug.Log(filePath);
 
 		if(File.Exists(filePath)) {
-			//Debug.Log(filePath);
 
             ReadDataFromPath();
 
@@ -99,12 +98,7 @@ public class DataController : MonoBehaviour {
 			
 			// then load the data
 			ReadDataFromPath();
-
-			//GameData tempdata = JsonUtility.FromJson<GameData>(contentsAsJson);
-
-            //Debug.LogError("Cannot load game data from file.");
-			Debug.Log("files created at persitentPath");
-			//Application.Quit();
+			Debug.Log("Files created at persitentPath.");
         }
 	}
 
@@ -117,6 +111,8 @@ public class DataController : MonoBehaviour {
 		loadedData = JsonUtility.FromJson<GameData>(dataAsJson);
 		// 
 		dataLoaded = false;
+
+		System.IO.File.WriteAllText(Application.persistentDataPath + "/" + savedDataFile, dataAsJson);
 	}
 
 	public void SaveData(string name) {

@@ -6,8 +6,8 @@ using TMPro;
 public class HoneyCurrency : MonoBehaviour {
 	// similar to HoneyScore, but is decreased when honey is bought
 
-	public int currency;
-	private string currencyText = "CURRENCY: ";
+	[HideInInspector] public int currency;
+	private string currencyText = " "; //"Currency: ";
 	private TextMeshProUGUI tmpu;
 
 	// Use this for initialization

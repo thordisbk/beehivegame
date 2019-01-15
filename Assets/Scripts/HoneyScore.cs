@@ -5,7 +5,7 @@ using TMPro;
 
 public class HoneyScore : MonoBehaviour {
 
-	public int harvestedHoney;  // increased by HoneyHandler
+	[HideInInspector] public int harvestedHoney;  // increased by HoneyHandler
 	private string honeyText = "HONEY: ";
 	private TextMeshProUGUI tmpu;
 

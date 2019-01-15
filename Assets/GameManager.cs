@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
 	[HideInInspector] public int currentPrice;	 // how much the honey costs
 	[HideInInspector] public float currentTime;	 // how long it takes for the honey to be ready
 	[HideInInspector] public int currentPoints;  // how many points the honey gives
+	[HideInInspector] public int undoPrice;	 	// how much is given back on undo
 
 	//public GameObject honeyTypeMenu;  // used when setting to inactive in PurchaseColor()
 
@@ -118,14 +119,14 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void UndoLastPurchase() {
+		// give back honey
+		honeyCurrency.currency += GetPriceForColors(lastUnitUpgraded.honeyFull.sprite.name);
 		// revert unit to former
 		lastUnitUpgraded.honeyFull.sprite = lastSprite;
 		lastUnitUpgraded.honeyEmpty.sprite = lastTransparentSprite;
 		lastUnitUpgraded.points = lastPoints;
 		lastUnitUpgraded.price = lastPrice;
 		lastUnitUpgraded.fillTime = lastTime;
-		// give back honey
-		honeyCurrency.currency += currentPrice;
 		// deactivate the undo button
 		foggyUndoButton.interactable = false;
 

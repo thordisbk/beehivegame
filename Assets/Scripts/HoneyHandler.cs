@@ -102,7 +102,7 @@ public class HoneyHandler : MonoBehaviour {
 				fullTime = 0f;
 				honeyFull.enabled = false;
 
-				honeyScore.harvestedHoney += points;
+				honeyScore.harvestedHoney++; // += points; // TODO
 				honeyCurrency.currency += points;
 			}
 			else {
