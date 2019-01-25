@@ -2,237 +2,301 @@
   "units": [
     {
       "name": "honeyUnit (0)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (1)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (2)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (3)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (4)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (5)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (6)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (7)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (8)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (9)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (10)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (11)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (12)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (13)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (14)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (15)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (16)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (17)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (18)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (19)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (20)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (21)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (22)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (23)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (24)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (25)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (26)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (27)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (28)",
-      "honeyEmptyButton": "hexhoneyEmpty",
-      "honeyFullImage": "hexhoneyFull",
-      "time": 5,
-      "points": 1,
-      "price": 0
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 1
+    },
+    {
+      "name": "honeyUnit (29)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (30)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (31)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (32)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (33)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (34)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (35)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (36)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (37)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (38)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (39)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (40)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (41)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (42)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (43)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (44)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (45)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (46)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (47)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (48)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (49)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (50)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (51)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (52)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (53)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (54)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (55)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (56)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (57)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
+    },
+    {
+      "name": "honeyUnit (58)",
+      "honeyFullImage": "hexhoneyOrange",
+      "isActivated": 0
     }
   ],
   "honeyScore": 0,
-  "honeyCurrency": 0
+  "honeyCurrency": 9999,
+  "musicOn": 1
 }

@@ -7,50 +7,36 @@ using UnityEngine.EventSystems;
 // one for each honeycomb unit
 public class HoneyHandler : MonoBehaviour {
 
-	[HideInInspector] public float fillTime = 5f;		// time it takes unit to fill up
-	public float readyTime = 10f;	// time honey can be in a unit before ?(it goes bad)?
+	private int COMB_PRICE = 300;  // the price of a new comb unit
+	// TODO increases when a unit is bought?
 
+	[HideInInspector] public Image honeyEmpty;	// a honey unit's image when it's empty
+	[HideInInspector] public Image honeyFull;	// a honey unit's image when it's full
+	[HideInInspector] public bool isActivated;  // false if unit hasn't been bought yet
+	[HideInInspector] public int points;  		// the currency points the honey gives when harvested
+	[HideInInspector] public int price;			// the price of the current honey color
+	[HideInInspector] public float fillTime;	// time it takes the unit to fill up and stop being empty
+	
 	private bool isEmpty;		// true if no honey is in the unit, true if honey is in the unit
-	private float emptyTime;
-	private float fullTime;
-
-	[HideInInspector] public int points;  // the points the honey gives when harvested
-	[HideInInspector] public int price;	// price of this honey color
-
-	[HideInInspector] public Image honeyEmpty;
-	[HideInInspector] public Image honeyFull;
+	private float readyTime;	// TODO? time honey can be in a unit before ?(it goes bad)?
+	private float emptyTime;	// how long the unit has been empty
+	private float fullForTime;	// how long the unit has been full
 
 	private HoneyScore honeyScore;		  // for increasing honeyHarvested in HoneyScore when honey is harvested
 	private HoneyCurrency honeyCurrency;  // for increasing currency in HoneyCurrency when honey is harvested
-
-	private DataController dataController;  // for saving on click
-
-	private GameManager gameManager;
-
-	// different types of honey, by color and flower
-	/*private string normalHoney = "honeyFullImage";  // yellow
-	private string poppyHoney = "";  				// red
-	private string mintHoney = "";  				// green ? although the flower is purple
-	private string forgetmenotHoney = "";  			// blue
-	private string blackHoney = "";  				// the bad honey ?
-	private string whitecloverHoney = "";  			// white
-	private string lavenderHoney = "";  			// purple
-	private string lilacsHoney = "";  				// light purple, some other color ?
-	private string sedumHoney = "";  				// pink
-	private string marigoldHoney = "";*/ 			// orange
+	private GameManager gameManager;		// for accessing variables and functions
+	private DataController dataController;  // for saving changes
 
 	// Use this for initialization
 	void Start () {
 		gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
+		dataController = GameObject.Find("DataController").GetComponent<DataController>();
 		honeyScore = GameObject.Find("HoneyScore").GetComponent<HoneyScore>();
 		honeyCurrency = GameObject.Find("HoneyCurrency").GetComponent<HoneyCurrency>();
 
-		dataController = GameObject.Find("DataController").GetComponent<DataController>();
-
 		isEmpty = true;
 		emptyTime = 0f;
-		fullTime = 0f;
+		fullForTime = 0f;
 
 		foreach (Transform child in transform) {
 			if (child.gameObject.name == "honeyEmptyButton") {
@@ -60,16 +46,12 @@ public class HoneyHandler : MonoBehaviour {
 				honeyFull = child.gameObject.GetComponent<Image>();
 			}
 		}
-		/*honeyEmpty.enabled = true;
-		honeyFull.enabled = false;
-
-		points = 1;
-		price = 0;*/
+		readyTime = 10f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (isEmpty) {
+		if (isActivated && isEmpty) {
 			// then add to empty time
 			emptyTime += Time.deltaTime;
 			if (emptyTime >= fillTime) {
@@ -80,9 +62,9 @@ public class HoneyHandler : MonoBehaviour {
 				honeyFull.enabled = true;
 			}
 		}
-		else {
-			fullTime += Time.deltaTime;
-			if (fullTime >= readyTime) {
+		else if (isActivated && !isEmpty) {
+			fullForTime += Time.deltaTime;
+			if (fullForTime >= readyTime) {
 				//Debug.Log("GONE BAD");
 				// honey goes bad
 				// TODO
@@ -96,47 +78,67 @@ public class HoneyHandler : MonoBehaviour {
 
 		// if foggy background is active, change the the unit that is clicked on
 		if (!gameManager.foggyBackground.activeSelf) {
-			if (!isEmpty) {
+
+			// if unit is being bought
+			if (!isActivated) {
+				// then the empty sprite is being displayed
+				//Debug.Log(this.name + " has not been activated");
+				// TODO if enough money, buy
+				if (honeyCurrency.currency >= COMB_PRICE) {
+					honeyCurrency.ChangeCurrencyValue(-1 * COMB_PRICE);
+					honeyEmpty.sprite = Resources.Load<Sprite>("Sprites/" + honeyFull.sprite.name + "Empty");
+					isActivated = true;
+				}
+				else {
+					gameManager.ActivateInfoText("Not enough money");
+				}
+			}
+			// if unit is being harvested
+			else if (!isEmpty) {
 				//Debug.Log("HARVEST");
 				isEmpty = true;
-				fullTime = 0f;
+				fullForTime = 0f;
 				honeyFull.enabled = false;
 
-				honeyScore.harvestedHoney++; // += points; // TODO
-				honeyCurrency.currency += points;
+				honeyScore.ChangeHarvestedHoneyValue(1);
+				honeyCurrency.ChangeCurrencyValue(points);
 			}
-			else {
+			else if (isEmpty) {
 				//Debug.Log("Unit is empty");
 			}
 		}
-		else {
+		else if (gameManager.foggyBackground.activeSelf && isActivated) {
 			if (honeyCurrency.currency >= gameManager.currentPrice) {
 
-				// for undo
-				gameManager.lastUnitUpgraded = this;
-				gameManager.lastSprite = honeyFull.sprite;
-				gameManager.lastTransparentSprite = honeyEmpty.sprite;
-				gameManager.lastPrice = price;
-				gameManager.lastTime = fillTime;
-				gameManager.lastPoints = points;
-				gameManager.foggyUndoButton.interactable = true;  // activate the undo button
+				// make so that color cannot be bought if unit is already of this color
+				if (honeyFull.sprite != gameManager.currentSprite) {
+					// for undo
+					gameManager.lastUnitUpgraded = this;
+					gameManager.lastSprite = honeyFull.sprite;
+					gameManager.lastTransparentSprite = honeyEmpty.sprite;
+					gameManager.lastPrice = price;
+					gameManager.lastTime = fillTime;
+					gameManager.lastPoints = points;
+					gameManager.foggyUndoButton.interactable = true;  // activate the undo button
 
-				// then honey color is being changed
-				honeyFull.sprite = gameManager.currentSprite;
-				honeyEmpty.sprite = gameManager.currentTransparentSprite;
-				fillTime = gameManager.currentTime; // TODO change for time, not price
-				points = gameManager.currentPoints;
-				price = gameManager.currentPrice;
-				// reset filling time
-				isEmpty = true;
-				fullTime = 0f;
-				honeyFull.enabled = false;
-				// decrease honeycurrency
-				honeyCurrency.currency -= (int) gameManager.currentPrice;
+					// then honey color is being changed
+					honeyFull.sprite = gameManager.currentSprite;
+					honeyEmpty.sprite = gameManager.currentTransparentSprite;
+					fillTime = gameManager.currentTime; // TODO change for time, not price
+					points = gameManager.currentPoints;
+					price = gameManager.currentPrice;
+					// reset filling time
+					isEmpty = true;
+					fullForTime = 0f;
+					honeyFull.enabled = false;
+					// decrease honeycurrency
+					honeyCurrency.ChangeCurrencyValue(-1 * (int) gameManager.currentPrice);
+				}
+				else Debug.Log("ABORT: you have already bought this");
 			}
 			else {
 				// not enough harvested honey to buy this color
-				gameManager.ActivateInfoText("Not enough honey");
+				gameManager.ActivateInfoText("Not enough money");
 			}
 		}
 

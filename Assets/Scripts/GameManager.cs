@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		Screen.orientation = ScreenOrientation.Portrait;
 
-		//foggyBackground = GameObject.Find("TypeChooseFog");  // only when private
+		//foggyBackground = GameObject.Find("TypeChooseFog");  // only when private an fogg.. is active
 
 		infoText = GameObject.Find("InfoText").GetComponent<TextMeshProUGUI>();
 		infoText.text = "";
@@ -55,9 +55,9 @@ public class GameManager : MonoBehaviour {
 
 		dataController = GameObject.Find("DataController").GetComponent<DataController>();
 
-		// TODO set prices for honeytypes
 	}
 
+	// TODO let this happen when window is closed
 	void OnEnable() {
 		// undo button is set to inactive, but activated when something has been purchased
 		foggyUndoButton.interactable = false;
@@ -97,8 +97,10 @@ public class GameManager : MonoBehaviour {
 		string spritePath = "Sprites/" + currentSprite.name.ToString() + "Empty";
 		currentTransparentSprite = Resources.Load<Sprite>(spritePath);
 
-		currentPrice = GetPriceForColors(obj.GetComponent<Image>().sprite.name);
-		currentTime = GetTimeForColors(obj.GetComponent<Image>().sprite.name);
+		//currentPrice = GetPriceForColors(obj.GetComponent<Image>().sprite.name);
+		//currentTime = GetTimeForColors(obj.GetComponent<Image>().sprite.name);
+		currentPrice = dataController.honeyDict[obj.GetComponent<Image>().sprite.name].price;
+		currentTime = dataController.honeyDict[obj.GetComponent<Image>().sprite.name].time;
 		currentPoints = (int) currentTime - (5 - 1);  // TODO make 5 a constant
 
 		// close the window
@@ -120,7 +122,8 @@ public class GameManager : MonoBehaviour {
 
 	public void UndoLastPurchase() {
 		// give back honey
-		honeyCurrency.currency += GetPriceForColors(lastUnitUpgraded.honeyFull.sprite.name);
+		//honeyCurrency.currency += GetPriceForColors(lastUnitUpgraded.honeyFull.sprite.name);
+		honeyCurrency.currency += dataController.honeyDict[lastUnitUpgraded.honeyFull.sprite.name].price;
 		// revert unit to former
 		lastUnitUpgraded.honeyFull.sprite = lastSprite;
 		lastUnitUpgraded.honeyEmpty.sprite = lastTransparentSprite;
@@ -135,11 +138,14 @@ public class GameManager : MonoBehaviour {
 			dataController.SaveData(lastUnitUpgraded.name);
 		}
 	}
-
+	/* 
 	// TODO make times shorter
 	private float GetTimeForColors(string name) {
 		// takes in the name of a sprite
 		// returns the time for how long it takes honey of this type to get ready
+		if (name == "hexhoneyOrange") {
+			return 5f;
+		}
 		if (name == "hexhoneyYellow") {
 			return 6f;
 		}
@@ -152,17 +158,29 @@ public class GameManager : MonoBehaviour {
 		else if (name == "hexhoneyGreen") {
 			return 9f;
 		}
-		else if (name == "hexhoneyPurple") {
+		else if (name == "hexhoneyLightgreen") {
 			return 10f;
 		}
-		else if (name == "hexhoneyBlue") {
+		else if (name == "hexhoneyPurple") {
 			return 11f;
 		}
-		else if (name == "hexhoneyWhite") {
+		else if (name == "hexhoneyBrown") {
 			return 12f;
 		}
-		else if (name == "hexhoneyBlack") {
+		else if (name == "hexhoneyGrey") {
 			return 13f;
+		}
+		else if (name == "hexhoneyWhite") {
+			return 14f;
+		}
+		else if (name == "hexhoneyBlack") {
+			return 15f;
+		}
+		else if (name == "hexhoneyBlue") {
+			return 16f;
+		}
+		else if (name == "hexhoneyLightblue") {
+			return 17f;
 		}
 		return 0f;
 	}
@@ -171,6 +189,9 @@ public class GameManager : MonoBehaviour {
 	private int GetPriceForColors(string name) {
 		// takes in the name of a sprite
 		// returns the price of honey
+		if (name == "hexhoneyOrange") {
+			return 0;
+		}
 		if (name == "hexhoneyYellow") {
 			return 5;
 		}
@@ -183,19 +204,31 @@ public class GameManager : MonoBehaviour {
 		else if (name == "hexhoneyGreen") {
 			return 20;
 		}
-		else if (name == "hexhoneyPurple") {
+		else if (name == "hexhoneyLightgreen") {
 			return 25;
 		}
-		else if (name == "hexhoneyBlue") {
+		else if (name == "hexhoneyPurple") {
 			return 30;
 		}
-		else if (name == "hexhoneyWhite") {
+		else if (name == "hexhoneyBrown") {
 			return 35;
 		}
-		else if (name == "hexhoneyBlack") {
+		else if (name == "hexhoneyGrey") {
 			return 40;
+		}
+		else if (name == "hexhoneyWhite") {
+			return 45;
+		}
+		else if (name == "hexhoneyBlack") {
+			return 50;
+		}
+		else if (name == "hexhoneyBlue") {
+			return 55;
+		}
+		else if (name == "hexhoneyLightblue") {
+			return 60;
 		}
 		return 0;
 	}
-
+	*/
 }

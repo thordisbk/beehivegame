@@ -1,0 +1,108 @@
+{
+  "honeyProperties": [
+    {
+      "fullSprite": "hexhoneyOrange",
+      "emptySprite": "hexhoneyOrangeEmpty",
+      "time": 3,
+      "price": 0,
+      "points": 1,
+      "description": "original"
+    },
+    {
+      "fullSprite": "hexhoneyYellow",
+      "emptySprite": "hexhoneyYellowEmpty",
+      "time": 4,
+      "price": 5,
+      "points": 2,
+      "description": "marigold"
+    },
+    {
+      "fullSprite": "hexhoneyRed",
+      "emptySprite": "hexhoneyRedEmpty",
+      "time": 5,
+      "price": 10,
+      "points": 3,
+      "description": "poppy"
+    },
+    {
+      "fullSprite": "hexhoneyPink",
+      "emptySprite": "hexhoneyPinkEmpty",
+      "time": 6,
+      "price": 15,
+      "points": 4,
+      "description": "sedum"
+    },
+    {
+      "fullSprite": "hexhoneyGreen",
+      "emptySprite": "hexhoneyGreenEmpty",
+      "time": 7,
+      "price": 20,
+      "points": 5,
+      "description": "mint"
+    },
+    {
+      "fullSprite": "hexhoneyLightgreen",
+      "emptySprite": "hexhoneyLightgreenEmpty",
+      "time": 8,
+      "price": 25,
+      "points": 6,
+      "description": "grass"
+    },
+    {
+      "fullSprite": "hexhoneyPurple",
+      "emptySprite": "hexhoneyPurpleEmpty",
+      "time": 9,
+      "price": 30,
+      "points": 7,
+      "description": "lavender"
+    },
+    {
+      "fullSprite": "hexhoneyBrown",
+      "emptySprite": "hexhoneyBrownEmpty",
+      "time": 10,
+      "price": 35,
+      "points": 8,
+      "description": "poop"
+    },
+    {
+      "fullSprite": "hexhoneyGrey",
+      "emptySprite": "hexhoneyGreyEmpty",
+      "time": 11,
+      "price": 40,
+      "points": 9,
+      "description": "grey"
+    },
+    {
+      "fullSprite": "hexhoneyWhite",
+      "emptySprite": "hexhoneyWhiteEmpty",
+      "time": 12,
+      "price": 45,
+      "points": 10,
+      "description": "whiteclover"
+    },
+    {
+      "fullSprite": "hexhoneyBlack",
+      "emptySprite": "hexhoneyBlackEmpty",
+      "time": 13,
+      "price": 50,
+      "points": 11,
+      "description": "black"
+    },
+    {
+      "fullSprite": "hexhoneyBlue",
+      "emptySprite": "hexhoneyBlueEmpty",
+      "time": 14,
+      "price": 55,
+      "points": 12,
+      "description": "forgetmenot"
+    },
+    {
+      "fullSprite": "hexhoneyLightblue",
+      "emptySprite": "hexhoneyLightblueEmpty",
+      "time": 15,
+      "price": 60,
+      "points": 13,
+      "description": "sky"
+    }
+  ]
+}

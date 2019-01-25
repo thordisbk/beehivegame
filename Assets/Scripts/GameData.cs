@@ -8,17 +8,19 @@ public class GameData : System.Object {
 	public HoneyUnitGameData[] units;
     public int honeyScore;
     public int honeyCurrency;
+    public bool musicOn;  // true if music is on, else false
 }
 
 [System.Serializable]
 public class HoneyUnitGameData : System.Object {
 	// information on each honey unit
 	public string name;					// name of game obejct
-    public string honeyEmptyButton;		// name of sprite for gameobject's honeyEmptyButton image
+    //public string honeyEmptyButton;		// name of sprite for gameobject's honeyEmptyButton image
     public string honeyFullImage;		// name of sprite for gameobject's honeyFullImage image
-    public float time;
-    public int points;
-    public int price;
+    //public float time;
+    //public int points;
+    //public int price;
+    public bool isActivated;
 }
 
 // on serializable
