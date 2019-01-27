@@ -39,6 +39,10 @@ public class GameManager : MonoBehaviour {
 	[HideInInspector] public float lastTime;
 	[HideInInspector] public int lastPoints;
 
+	private GameObject beehive; 
+	// indicates whether the unactivated beehive additions are visible or not
+	[HideInInspector] public bool additionsVisible;  
+
 	// Use this for initialization
 	void Start () {
 		Screen.orientation = ScreenOrientation.Portrait;
@@ -54,6 +58,9 @@ public class GameManager : MonoBehaviour {
 		honeyCurrency = GameObject.Find("HoneyCurrency").GetComponent<HoneyCurrency>();
 
 		dataController = GameObject.Find("DataController").GetComponent<DataController>();
+
+		beehive = GameObject.Find("Beehive");
+		additionsVisible = false;
 
 	}
 
@@ -85,6 +92,8 @@ public class GameManager : MonoBehaviour {
 		infoText.text = str;
 		infoText.enabled = true;
 	}
+
+	/* For changing color of a honey unit */
 
 	public void PurchaseColor(GameObject obj) {
 		// called on button click, parameter is the object of the button that was pressed
@@ -122,8 +131,7 @@ public class GameManager : MonoBehaviour {
 
 	public void UndoLastPurchase() {
 		// give back honey
-		//honeyCurrency.currency += GetPriceForColors(lastUnitUpgraded.honeyFull.sprite.name);
-		honeyCurrency.currency += dataController.honeyDict[lastUnitUpgraded.honeyFull.sprite.name].price;
+		honeyCurrency.ChangeCurrencyValue(dataController.honeyDict[lastUnitUpgraded.honeyFull.sprite.name].price);
 		// revert unit to former
 		lastUnitUpgraded.honeyFull.sprite = lastSprite;
 		lastUnitUpgraded.honeyEmpty.sprite = lastTransparentSprite;
@@ -138,97 +146,35 @@ public class GameManager : MonoBehaviour {
 			dataController.SaveData(lastUnitUpgraded.name);
 		}
 	}
-	/* 
-	// TODO make times shorter
-	private float GetTimeForColors(string name) {
-		// takes in the name of a sprite
-		// returns the time for how long it takes honey of this type to get ready
-		if (name == "hexhoneyOrange") {
-			return 5f;
+
+	/* For expanding the honey comb */
+
+	public void DisplayUnpurchasedHoney() {
+		// display honeyUnits that can be bought, called by button and when a unit is bought
+
+		// check all units
+		foreach (Transform child in beehive.transform) {
+			HoneyHandler temp = child.gameObject.GetComponent<HoneyHandler>();
+			// check if surrounding units are active, if any of them is then display 
+			for (int i = 0; i < temp.otherSix.Count; i++) {
+				if (temp.otherSix[i].isActivated) {
+					child.gameObject.SetActive(true);
+				}
+			}
 		}
-		if (name == "hexhoneyYellow") {
-			return 6f;
-		}
-		else if (name == "hexhoneyRed") {
-			return 7f;
-		}
-		else if (name == "hexhoneyPink") {
-			return 8f;
-		}
-		else if (name == "hexhoneyGreen") {
-			return 9f;
-		}
-		else if (name == "hexhoneyLightgreen") {
-			return 10f;
-		}
-		else if (name == "hexhoneyPurple") {
-			return 11f;
-		}
-		else if (name == "hexhoneyBrown") {
-			return 12f;
-		}
-		else if (name == "hexhoneyGrey") {
-			return 13f;
-		}
-		else if (name == "hexhoneyWhite") {
-			return 14f;
-		}
-		else if (name == "hexhoneyBlack") {
-			return 15f;
-		}
-		else if (name == "hexhoneyBlue") {
-			return 16f;
-		}
-		else if (name == "hexhoneyLightblue") {
-			return 17f;
-		}
-		return 0f;
+
+		additionsVisible = true;
 	}
 
-	// TODO make more expensive
-	private int GetPriceForColors(string name) {
-		// takes in the name of a sprite
-		// returns the price of honey
-		if (name == "hexhoneyOrange") {
-			return 0;
+	public void HideUnpurchasedHoney() {
+
+		// for all units, if it has not been activated, then hide it
+		foreach (Transform child in beehive.transform) {
+			if (!child.GetComponent<HoneyHandler>().isActivated) {
+				child.gameObject.SetActive(false);
+			}
 		}
-		if (name == "hexhoneyYellow") {
-			return 5;
-		}
-		else if (name == "hexhoneyRed") {
-			return 10;
-		}
-		else if (name == "hexhoneyPink") {
-			return 15;
-		}
-		else if (name == "hexhoneyGreen") {
-			return 20;
-		}
-		else if (name == "hexhoneyLightgreen") {
-			return 25;
-		}
-		else if (name == "hexhoneyPurple") {
-			return 30;
-		}
-		else if (name == "hexhoneyBrown") {
-			return 35;
-		}
-		else if (name == "hexhoneyGrey") {
-			return 40;
-		}
-		else if (name == "hexhoneyWhite") {
-			return 45;
-		}
-		else if (name == "hexhoneyBlack") {
-			return 50;
-		}
-		else if (name == "hexhoneyBlue") {
-			return 55;
-		}
-		else if (name == "hexhoneyLightblue") {
-			return 60;
-		}
-		return 0;
+		additionsVisible = false;
 	}
-	*/
+
 }

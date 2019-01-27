@@ -3,112 +3,112 @@
     {
       "name": "honeyUnit (0)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (1)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (2)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (3)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (4)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (5)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (6)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (7)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (8)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (9)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (10)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (11)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (12)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (13)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (14)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (15)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (16)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (17)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (18)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (19)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (20)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (21)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (22)",
@@ -123,22 +123,22 @@
     {
       "name": "honeyUnit (24)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (25)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (26)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (27)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 1
+      "isActivated": 0
     },
     {
       "name": "honeyUnit (28)",
@@ -148,12 +148,12 @@
     {
       "name": "honeyUnit (29)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 0
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (30)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 0
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (31)",
@@ -178,12 +178,12 @@
     {
       "name": "honeyUnit (35)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 0
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (36)",
       "honeyFullImage": "hexhoneyOrange",
-      "isActivated": 0
+      "isActivated": 1
     },
     {
       "name": "honeyUnit (37)",
@@ -297,6 +297,6 @@
     }
   ],
   "honeyScore": 0,
-  "honeyCurrency": 9999,
+  "honeyCurrency": 0,
   "musicOn": 1
 }

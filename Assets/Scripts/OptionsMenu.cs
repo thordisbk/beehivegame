@@ -4,21 +4,58 @@ using UnityEngine.UI;
 public class OptionsMenu : MonoBehaviour {
     
 	// for music
-	private Slider musicSlider;
 	private AudioSource musicSource;
+	/*private Slider musicSlider;
 	public GameObject musicOnText;
-	public GameObject musicOffText;
+	public GameObject musicOffText;*/
+	private Scrollbar musicScrollbar;
+	private Image musicScrollbarBackground;
 
 	// for sounds
-	private Slider soundsSlider;
+	private AudioSource soundsSource;
+	/*private Slider soundsSlider;
 	public GameObject soundsOnText;
-	public GameObject soundsOffText;
-	//private AudioSource soundsSource;
+	public GameObject soundsOffText;*/
+	private Scrollbar soundsScrollbar;
+	private Image soundsScrollbarBackground;
+
+	// colors for scrollbar background
+	private Color onColor = new Color(0.9176f,0.5215f,0.1333f,1f);  // orangeish
+	private Color offColor = new Color(0.9921f,0.8588f,0.1921f,1f);  // yellowish
 
     void Start() {
-		// for music
-		musicSlider = GameObject.Find("MusicSlider").GetComponent<Slider>();
 		musicSource = GameObject.Find("MenuAudio").GetComponent<AudioSource>();
+		soundsSource = GameObject.Find("SoundsAudio").GetComponent<AudioSource>();
+
+		// music scrollbar
+		musicScrollbar = GameObject.Find("MusicScrollbar").GetComponent<Scrollbar>();
+		musicScrollbarBackground = GameObject.Find("MusicScrollbar").GetComponent<Image>();
+		if (musicSource.volume == 0) {
+			// music is off and background is yellowish
+			musicScrollbar.value = 0;
+			musicScrollbarBackground.color = offColor;
+		} 
+		else {
+			// music is on and background is brownish
+			musicScrollbar.value = 1;
+			musicScrollbarBackground.color = onColor;
+		}
+		// sounds scrollbar
+		soundsScrollbar = GameObject.Find("SoundsScrollbar").GetComponent<Scrollbar>();
+		soundsScrollbarBackground = GameObject.Find("SoundsScrollbar").GetComponent<Image>();
+		if (soundsSource.volume == 0) {
+			// sounds is off and background is yellowish
+			soundsScrollbar.value = 0;
+			soundsScrollbarBackground.color = offColor;
+		} 
+		else {
+			// sounds is on and background is brownish
+			soundsScrollbar.value = 1;
+			soundsScrollbarBackground.color = onColor;
+		}
+
+		// for music
+		/*musicSlider = GameObject.Find("MusicSlider").GetComponent<Slider>();
 		musicSource.volume = 1;
 		musicSlider.value = musicSource.volume;
 		if (musicSource.volume != 0) {
@@ -30,21 +67,57 @@ public class OptionsMenu : MonoBehaviour {
 			musicOffText.SetActive(true);
 			musicOnText.SetActive(false);
 			musicSlider.value = 0;
-		}
+		}*/
 
 		// for sounds
-		soundsSlider = GameObject.Find("SoundsSlider").GetComponent<Slider>();
+		/*soundsSlider = GameObject.Find("SoundsSlider").GetComponent<Slider>();
+		soundsSource.volume = 1;
+		soundsSlider.value = soundsSource.volume;
 		if (soundsSlider.value != 0) {
 			soundsOffText.SetActive(false);
 			soundsOnText.SetActive(true);
+			soundsSlider.value = 1;
 		}
 		else {
 			soundsOffText.SetActive(true);
 			soundsOnText.SetActive(false);
-		}
+			soundsSlider.value = 0;
+		}*/
     }
 
-	public void onMusicVolumeChange() {
+	// for scrollbar
+
+	public void onMusicScrollbarChange() {
+		musicSource.volume = musicScrollbar.value;
+		if (musicSource.volume == 0) {
+			// music is off and background is yellowish
+			musicScrollbar.value = 0;
+			musicScrollbarBackground.color = offColor;
+		} 
+		else {
+			// music is on and background is brownish
+			musicScrollbar.value = 1;
+			musicScrollbarBackground.color = onColor;
+		}
+	}
+
+	public void onSoundsScrollbarChange() {
+		soundsSource.volume = soundsScrollbar.value;
+		if (soundsSource.volume == 0) {
+			// sounds is off and background is yellowish
+			soundsScrollbar.value = 0;
+			soundsScrollbarBackground.color = offColor;
+		} 
+		else {
+			// sounds is on and background is brownish
+			soundsScrollbar.value = 1;
+			soundsScrollbarBackground.color = onColor;
+		}
+	}
+
+	// for slider
+
+	/*public void onMusicVolumeChange() {
 		//Debug.Log("changing volume of music");
 		musicSource.volume = musicSlider.value;
 		// slider value can be either 0 or 1
@@ -58,21 +131,24 @@ public class OptionsMenu : MonoBehaviour {
 			musicOnText.SetActive(false);
 			musicSlider.value = 0;
 		}
-	}
+	}*/
 	
-	public void onSoundsVolumeChange() {
-		Debug.Log("NOT IMPLEMENTED: sounds volume");
+	/*public void onSoundsVolumeChange() {
+		//Debug.Log("NOT IMPLEMENTED: sounds volume");
 		// TODO
+		soundsSource.volume = soundsSlider.value;
 		if (soundsSlider.value != 0) {
 			soundsOffText.SetActive(false);
 			soundsOnText.SetActive(true);
+			soundsSlider.value = 1;
 		}
 		else {
 			soundsOffText.SetActive(true);
 			soundsOnText.SetActive(false);
+			soundsSlider.value = 0;
 		}
 
-	}
+	}*/
 
 	/* 	// for longer slider:
 

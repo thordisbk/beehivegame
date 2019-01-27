@@ -20,3 +20,4 @@ https://drive.google.com/drive/u/0/folders/1QZlTQDZVj1VYWaWt27AKAUyjHOp0Jco0
 - 0.6 saving works
 - 0.7 darker look, less text and more images, scales to 1080x2160
 - 0.8 expandable honeycomb, more honey colors, honeyInfo.json for honey init data, now honeytypelist is loaded into at start, saving changes so now save file is smaller
+- 0.9 honeycomb only expandable around active units, text appears when changing values of honeyscore and honeycurrency and then it fades away, added sound for when unit is clicked, changed music and sound sliders to scrollbar

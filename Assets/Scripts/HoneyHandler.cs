@@ -17,15 +17,20 @@ public class HoneyHandler : MonoBehaviour {
 	[HideInInspector] public int price;			// the price of the current honey color
 	[HideInInspector] public float fillTime;	// time it takes the unit to fill up and stop being empty
 	
-	private bool isEmpty;		// true if no honey is in the unit, true if honey is in the unit
-	private float readyTime;	// TODO? time honey can be in a unit before ?(it goes bad)?
-	private float emptyTime;	// how long the unit has been empty
-	private float fullForTime;	// how long the unit has been full
+	private bool isEmpty;			// true if no honey is in the unit, true if honey is in the unit
+	private float readyTime;		// TODO? time honey can be in a unit before ?(it goes bad)?
+	private float emptyTime;		// how long the unit has been empty
+	private float fullForTime;		// how long the unit has been full
+	private AudioSource pushSound;	// sound when honey is being harvested
 
 	private HoneyScore honeyScore;		  // for increasing honeyHarvested in HoneyScore when honey is harvested
 	private HoneyCurrency honeyCurrency;  // for increasing currency in HoneyCurrency when honey is harvested
 	private GameManager gameManager;		// for accessing variables and functions
 	private DataController dataController;  // for saving changes
+
+	// the other units that could possibly touch this unit (most six), used by ExpandHoneyComb
+	//[HideInInspector] public HoneyHandler[] otherSix;// = new HoneyHandler[6];
+	[HideInInspector] public List<HoneyHandler> otherSix = new List<HoneyHandler>();
 
 	// Use this for initialization
 	void Start () {
@@ -47,6 +52,86 @@ public class HoneyHandler : MonoBehaviour {
 			}
 		}
 		readyTime = 10f;
+
+		// the units surrounding this one
+		FillotherSix();
+
+		//pushSound = GetComponent<AudioSource>();
+		pushSound = GameObject.Find("SoundsAudio").GetComponent<AudioSource>();
+	}
+
+	private void FillotherSix() {
+
+		int offset1 = 1;
+		int offset2 = 6;
+		int offset3 = 7;
+
+		// get the number of this unit
+		string strNum = this.name.Split('(')[1].Split(')')[0]; // name is honeyUnit (x)
+		int x = int.Parse(strNum);
+		//print("Number: " + strNum);
+
+		GameObject temp;
+		if (x % (offset2 + offset3) == 0) { // left side, longer row
+			// do not check x-1, x+6, x-7
+			temp = GameObject.Find("honeyUnit (" + (x + offset1).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x - offset2).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x + offset3).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+		}
+		else if ((x - offset3) % (offset2 + offset3) == 0) {  // left side, shorter row
+			// do not check x-1
+			temp = GameObject.Find("honeyUnit (" + (x + offset1).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x - offset2).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x + offset2).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x - offset3).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x + offset3).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+		}
+		else if ((x - offset2) % (offset2 + offset3) == 0) {  // right side, longer row
+			// do not check x+1, x-6, x+7
+			temp = GameObject.Find("honeyUnit (" + (x - offset1).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x + offset2).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x - offset3).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+		}
+		else if ((x - 2 * offset2) % (offset2 + offset3) == 0) {  // right side, shorter row
+			// do not check x+1
+			temp = GameObject.Find("honeyUnit (" + (x - offset1).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x - offset2).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x + offset2).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x - offset3).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x + offset3).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+		}
+		else {
+			temp = GameObject.Find("honeyUnit (" + (x - offset1).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x + offset1).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x - offset2).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x + offset2).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x - offset3).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+			temp = GameObject.Find("honeyUnit (" + (x + offset3).ToString() + ")");
+			if (temp != null) otherSix.Add(temp.GetComponent<HoneyHandler>());
+		}
+		
+		//print(otherSix.Count);
 	}
 	
 	// Update is called once per frame
@@ -88,6 +173,7 @@ public class HoneyHandler : MonoBehaviour {
 					honeyCurrency.ChangeCurrencyValue(-1 * COMB_PRICE);
 					honeyEmpty.sprite = Resources.Load<Sprite>("Sprites/" + honeyFull.sprite.name + "Empty");
 					isActivated = true;
+					gameManager.DisplayUnpurchasedHoney();
 				}
 				else {
 					gameManager.ActivateInfoText("Not enough money");
@@ -102,6 +188,8 @@ public class HoneyHandler : MonoBehaviour {
 
 				honeyScore.ChangeHarvestedHoneyValue(1);
 				honeyCurrency.ChangeCurrencyValue(points);
+
+				pushSound.Play();
 			}
 			else if (isEmpty) {
 				//Debug.Log("Unit is empty");

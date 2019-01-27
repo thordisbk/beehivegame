@@ -15,7 +15,8 @@ public class DataController : MonoBehaviour {
 	//private string jsonFolder = "JSONdata/";
 	private string initDataLocation = "JSONdata/initdata";
 	//private string initDataFile = "initdata.json";
-	private string savedDataFile = "saveddata.json";
+	private string savedDataFile = ".saveddata.json";
+	private string honeyInfoLocation = "JSONdata/honeyinfo";
 	
 	// for static honey data
 	[HideInInspector] public Dictionary<string, HoneyProperties> honeyDict;
@@ -41,7 +42,7 @@ public class DataController : MonoBehaviour {
 		musicSource = GameObject.Find("MenuAudio").GetComponent<AudioSource>();
 
 		// get JSON information on honey types
-		TextAsset file = Resources.Load("JSONdata/honeyinfo") as TextAsset;  // note: don't use .json extension
+		TextAsset file = Resources.Load(honeyInfoLocation) as TextAsset;  // note: don't use .json extension
 		string honeyInfoAsJson = file.ToString();
 		HoneyCombInfo tempjson = JsonUtility.FromJson<HoneyCombInfo>(honeyInfoAsJson);
 		// create dictionary so it will be simpler to access info on honey types

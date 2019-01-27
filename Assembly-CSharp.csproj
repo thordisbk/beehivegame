@@ -54,7 +54,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\DataController.cs" />
-     <Compile Include="Assets\Scripts\ExpandHoneyComb.cs" />
      <Compile Include="Assets\Scripts\FillHoneyList.cs" />
      <Compile Include="Assets\Scripts\GameData.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
